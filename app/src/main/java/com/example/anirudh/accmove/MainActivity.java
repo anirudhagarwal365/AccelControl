@@ -256,7 +256,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     };
 
-
+    //nothing
     View.OnClickListener keyboardOnOffButtonListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
