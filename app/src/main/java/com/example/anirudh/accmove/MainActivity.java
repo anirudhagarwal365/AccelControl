@@ -84,7 +84,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     public static float gz = 0.0f;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -473,6 +472,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            Log.i("setting","setting button clicked!!");
             return true;
         }
 
