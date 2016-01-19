@@ -265,12 +265,12 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                 sendKey=true;
                 editTextTemporary.requestFocus();
                 ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED, 0);
-                notificationManager.notify(234,notificationKeyboard);
+                //notificationManager.notify(234,notificationKeyboard);
             }
             else{
                 ((InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE)).toggleSoftInput(InputMethodManager.SHOW_FORCED,0);
                 sendKey=false;
-                notificationManager.cancel(234);
+                //notificationManager.cancel(234);
             }
         }
     };
@@ -281,11 +281,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         public void onClick(View v) {
             if(MainActivity.send==true){
                 MainActivity.send=false;
-                notificationManager.cancel(123);
+                //notificationManager.cancel(123);
             }
             else{
                 MainActivity.send=true;
-                notificationManager.notify(123,notificationStarMouse);
+                //notificationManager.notify(123,notificationStarMouse);
             }
         }
     };
@@ -321,6 +321,41 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     };
 
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            // Do your thing
+            MainActivity.clickSend = 3;
+            new Asynch().execute();
+            return true;
+        }
+        else if(keyCode == KeyEvent.KEYCODE_VOLUME_UP){
+            MainActivity.clickSend = 1;
+            new Asynch().execute();
+            return true;
+        }
+        else {
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+
+    public boolean onKeyUp(int keyCode, KeyEvent event){
+        if (keyCode == KeyEvent.KEYCODE_VOLUME_DOWN) {
+            // Do your thing
+            MainActivity.clickSend = 4;
+            new Asynch().execute();
+            return true;
+        }
+        else if(keyCode == KeyEvent.KEYCODE_VOLUME_UP){
+            MainActivity.clickSend = 2;
+            new Asynch().execute();
+            return true;
+        }
+        else {
+            return super.onKeyDown(keyCode, event);
+        }
+    }
+
     View.OnClickListener connectButtonNorthListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -334,7 +369,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     public void onDestroy() {
         Toast.makeText(getApplicationContext(),"16. onDestroy()", Toast.LENGTH_SHORT).show();
-        notificationManager.cancelAll();
+        //notificationManager.cancelAll();
         super.onDestroy();
     }
 
@@ -403,7 +438,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                     port1 = Integer.parseInt(str_temp[1]);
                     port2= Integer.parseInt(str_temp[2]);
                     makeConnections();
-                    notificationManager.notify(123,notificationStarMouse);
+                    //notificationManager.notify(123,notificationStarMouse);
                 }
             }
             catch(Exception e){
@@ -530,6 +565,24 @@ class Asynch extends AsyncTask{
                     }
                     case 4:{
                         MainActivity.temp="RightUp";
+                        tempBytes=MainActivity.temp.getBytes();
+                        inet=InetAddress.getByName(MainActivity.globalIP);
+                        dataPack=new DatagramPacket(tempBytes,tempBytes.length,inet,MainActivity.port1);
+                        MainActivity.sock.send(dataPack);
+                        MainActivity.clickSend=0;
+                        break;
+                    }
+                    case 5:{
+                        MainActivity.temp="LeftClick";
+                        tempBytes=MainActivity.temp.getBytes();
+                        inet=InetAddress.getByName(MainActivity.globalIP);
+                        dataPack=new DatagramPacket(tempBytes,tempBytes.length,inet,MainActivity.port1);
+                        MainActivity.sock.send(dataPack);
+                        MainActivity.clickSend=0;
+                        break;
+                    }
+                    case 6:{
+                        MainActivity.temp="RightClick";
                         tempBytes=MainActivity.temp.getBytes();
                         inet=InetAddress.getByName(MainActivity.globalIP);
                         dataPack=new DatagramPacket(tempBytes,tempBytes.length,inet,MainActivity.port1);
