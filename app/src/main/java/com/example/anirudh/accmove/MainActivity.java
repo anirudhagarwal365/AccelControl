@@ -52,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     SensorManager mSensorManager;
     Sensor senGyroscope;
 
+    public static boolean switchClickButtonToggle=false;
+
     // port for UDP = 12001
     // port for TCP = 12002
     static int port1 = 0;
@@ -98,6 +100,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             //notificationStarMouse.
             //notificationKeyboard = new Notification.Builder(this).setContentTitle("AccControl Keyboard").setContentText("Keyboard in use")
             //        .setSmallIcon(R.drawable.abc_spinner_textfield_background_material).setOngoing(true).build();
+
 
             connectButtonNorth= (Button) findViewById(R.id.connectButtonNorth);
             leftClickButtonWest= (Button) findViewById(R.id.leftButtonClickWest);
@@ -192,7 +195,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         catch (Exception e){
             Log.i("hello",e.toString());
         }
-
     }
 
     View.OnTouchListener arrowUpTouchListener = new View.OnTouchListener() {
@@ -380,8 +382,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
         else {
             try{
-                leftClickButtonWest.setVisibility(View.VISIBLE);
-                rightClickButtonEast.setVisibility(View.VISIBLE);
+                //leftClickButtonWest.setVisibility(View.VISIBLE);
+                //rightClickButtonEast.setVisibility(View.VISIBLE);
                 startStopButton.setVisibility(View.VISIBLE);
                 keyboardOnOffButton.setVisibility(View.VISIBLE);
 
@@ -472,7 +474,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
             Log.i("setting","setting button clicked!!");
             return true;
         }
