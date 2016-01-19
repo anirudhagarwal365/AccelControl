@@ -91,14 +91,14 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         setContentView(R.layout.activity_main);
         try{
 
-            notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-            notificationStarMouse = new Notification.Builder(this).setContentTitle("AccControl Mouse").setContentText("Touch to Pause").setSmallIcon(R.drawable.abc_btn_rating_star_on_mtrl_alpha)
-                    .setOngoing(true).build();
-            Intent intent1 = new Intent(this, Main2Activity.class);
-            PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, 0, intent1, Intent.FILL_IN_ACTION);
-            notificationStarMouse.
-            notificationKeyboard = new Notification.Builder(this).setContentTitle("AccControl Keyboard").setContentText("Keyboard in use")
-                    .setSmallIcon(R.drawable.abc_spinner_textfield_background_material).setOngoing(true).build();
+            //notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+            //notificationStarMouse = new Notification.Builder(this).setContentTitle("AccControl Mouse").setContentText("Touch to Pause").setSmallIcon(R.drawable.abc_btn_rating_star_on_mtrl_alpha)
+            //        .setOngoing(true).build();
+            //Intent intent1 = new Intent(this, Main2Activity.class);
+            //PendingIntent pendingIntent = PendingIntent.getActivity(MainActivity.this, 0, intent1, Intent.FILL_IN_ACTION);
+            //notificationStarMouse.
+            //notificationKeyboard = new Notification.Builder(this).setContentTitle("AccControl Keyboard").setContentText("Keyboard in use")
+            //        .setSmallIcon(R.drawable.abc_spinner_textfield_background_material).setOngoing(true).build();
 
             connectButtonNorth= (Button) findViewById(R.id.connectButtonNorth);
             leftClickButtonWest= (Button) findViewById(R.id.leftButtonClickWest);
