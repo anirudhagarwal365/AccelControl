@@ -1,16 +1,22 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="start SCAN"
         android:id="@+id/connectButtonNorth"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/leftButtonClickWest"
+        android:layout_toEndOf="@+id/leftButtonClickWest"
+        android:layout_marginTop="66dp" />
 
     <Button
         android:layout_width="130dp"
@@ -35,18 +41,18 @@
         android:layout_height="wrap_content"
         android:text="START/PAUSE"
         android:id="@+id/startStopButton"
-        android:layout_alignTop="@+id/connectButtonNorth"
-        android:layout_alignRight="@+id/connectButtonNorth"
-        android:layout_alignEnd="@+id/connectButtonNorth" />
+        android:layout_above="@+id/keyboardOnOffButton"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Keyboard On/Off"
         android:id="@+id/keyboardOnOffButton"
+        android:layout_marginTop="40dp"
         android:layout_below="@+id/connectButtonNorth"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp" />
+        android:layout_alignLeft="@+id/startStopButton"
+        android:layout_alignStart="@+id/startStopButton" />
 
     <com.example.anirudh.accmove.ZanyEditText
         android:layout_width="0dp"

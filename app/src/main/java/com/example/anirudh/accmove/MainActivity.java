@@ -13,6 +13,7 @@ import android.hardware.SensorManager;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
@@ -51,6 +52,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     static ZanyEditText editTextTemporary;
     SensorManager mSensorManager;
     Sensor senGyroscope;
+
+    private Toolbar mToolbar;
 
     public static boolean switchClickButtonToggle=false;
 
@@ -101,6 +104,11 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
             //notificationKeyboard = new Notification.Builder(this).setContentTitle("AccControl Keyboard").setContentText("Keyboard in use")
             //        .setSmallIcon(R.drawable.abc_spinner_textfield_background_material).setOngoing(true).build();
 
+
+            mToolbar = (Toolbar) findViewById(R.id.toolbar);
+
+            setSupportActionBar(mToolbar);
+            getSupportActionBar().setDisplayShowHomeEnabled(true);
 
             connectButtonNorth= (Button) findViewById(R.id.connectButtonNorth);
             leftClickButtonWest= (Button) findViewById(R.id.leftButtonClickWest);
