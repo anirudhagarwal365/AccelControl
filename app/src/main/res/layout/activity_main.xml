@@ -16,7 +16,9 @@
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/leftButtonClickWest"
         android:layout_toEndOf="@+id/leftButtonClickWest"
-        android:layout_marginTop="66dp" />
+        android:layout_marginTop="66dp"
+        android:theme="@style/MyButton"
+        android:textColor="@color/textColorPrimary"/>
 
     <Button
         android:layout_width="130dp"
@@ -41,18 +43,22 @@
         android:layout_height="wrap_content"
         android:text="START/PAUSE"
         android:id="@+id/startStopButton"
-        android:layout_above="@+id/keyboardOnOffButton"
-        android:layout_centerHorizontal="true" />
+        android:textColor="@color/textColorPrimary"
+        android:theme="@style/StartStopButtonTheme"
+        android:layout_below="@+id/connectButtonNorth"
+        android:layout_toLeftOf="@+id/connectButtonNorth"
+        android:layout_toStartOf="@+id/connectButtonNorth" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="200sp"
         android:layout_height="wrap_content"
         android:text="Keyboard On/Off"
         android:id="@+id/keyboardOnOffButton"
-        android:layout_marginTop="40dp"
+        android:textColor="@color/textColorPrimary"
+        android:theme="@style/KeyboardButtonTheme"
         android:layout_below="@+id/connectButtonNorth"
-        android:layout_alignLeft="@+id/startStopButton"
-        android:layout_alignStart="@+id/startStopButton" />
+        android:layout_toEndOf="@+id/connectButtonNorth"
+        android:layout_toRightOf="@+id/connectButtonNorth" />
 
     <com.example.anirudh.accmove.ZanyEditText
         android:layout_width="0dp"
@@ -74,25 +80,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="UP"
-            android:id="@+id/buttonUP" />
+            android:id="@+id/buttonUP"
+            android:theme="@style/UpButtonTheme"
+            android:textColor="@color/textColorPrimary"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DOWN"
-            android:id="@+id/buttonDOWN" />
+            android:id="@+id/buttonDOWN"
+            android:theme="@style/DownButtonTheme"
+            android:textColor="@color/textColorPrimary"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LEFT"
-            android:id="@+id/buttonLEFT" />
+            android:id="@+id/buttonLEFT"
+            android:theme = "@style/LeftButtonTheme"
+            android:textColor="@color/textColorPrimary"/>
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="RIGHT"
-            android:id="@+id/buttonRIGHT" />
+            android:id="@+id/buttonRIGHT"
+            android:theme="@style/RightButtonTheme"
+            android:textColor="@color/textColorPrimary"/>
     </LinearLayout>
 
     <TextView

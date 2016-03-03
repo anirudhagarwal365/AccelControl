@@ -106,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
 
             mToolbar = (Toolbar) findViewById(R.id.toolbar);
-
+            //mToolbar.setBackgroundColor(Integer.parseInt("@color/indigo"));
             setSupportActionBar(mToolbar);
             getSupportActionBar().setDisplayShowHomeEnabled(true);
 
